@@ -95,3 +95,13 @@ console.log(0&&"abc");                     //  0   数字不是布尔值
 ​    //隐藏  type=search   自带的 X 按钮
 ​    ::-webkit-search-cancel-button { display: none; }
 </style>
+
+## 5.touch事件冲突
+
+**问题：**
+
+移动端有很多手势事件，移动端浏览器也会有，比如微信中在最顶部下拉会有一个缓冲，uc浏览器，iPhone等，当你的网页中注册了touchmove事件，会造成触发自有的touchmove事件。
+
+**解决：**
+
+在你的网页中的touchmove事件中进行阻止冒泡行为e.stopPropagation()
