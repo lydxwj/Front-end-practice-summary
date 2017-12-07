@@ -104,4 +104,6 @@ console.log(0&&"abc");                     //  0   数字不是布尔值
 
 **解决：**
 
-在你的网页中的touchmove事件中进行阻止冒泡行为e.stopPropagation()
+在你的网页中的touchmove事件中进行阻止冒泡行为e.stopPropagation()，然而并没有什么用处，即使你把touchstar和touchend都用e.stopPropagation()阻止了默认行为。
+
+这时你应该想到了要阻止默认行为，e.preventDefault()，此时确实可以解决问题，但是处理不好会产生新的问题：点击事件失效，原因是touchstar或者touchend也阻止了默认行为，所以解决只能在touchmove事件阻止默认行为e.preventDefault()。
